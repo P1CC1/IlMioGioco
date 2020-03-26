@@ -8,7 +8,7 @@ import { aggiornaLivello } from "../api/gestione_livello";
 
 Modal.setAppElement("#root");
 
-const Main = ({ appState, setAppState }) => {
+const Main = ({ appState, setAppState, inventoryState, setInventoryState }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const onStart = () => {
     setModalIsOpen(true);
@@ -24,7 +24,9 @@ const Main = ({ appState, setAppState }) => {
       transform: "translate(-50%, -50%)"
     }
   };
-
+  const [backpackState, setBackpackState] = useState({});
+  const [wearableState, setWearableState] = useState({});
+  const [equipmentState, setEquipmentState] = useState({});
   const inputNome = createRef();
   const inputClasse = createRef();
 
@@ -42,6 +44,13 @@ const Main = ({ appState, setAppState }) => {
     };
     setAppState(newAppState);
     setModalIsOpen(false);
+
+    const newInventoryState = {
+      equipmentState,
+      wearableState,
+      backpackState
+    };
+    setInventoryState(newInventoryState);
   };
 
   const onNextTurn = () => {
@@ -49,7 +58,7 @@ const Main = ({ appState, setAppState }) => {
     const newAppState = Object.assign({}, appState, {
       livello: aggiornaLivello(appState, delta)
     });
-    //console.log(newAppState);
+    console.log(inventoryState);
     setAppState(newAppState);
   };
 

@@ -9,10 +9,12 @@ import { aggiornaLivello } from "../api/gestione_livello";
 Modal.setAppElement("#root");
 
 const Main = ({ appState, setAppState, inventoryState, setInventoryState }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const onStart = () => {
+  let [modalIsOpen, setModalIsOpen] = useState();
+  if (!appState.nome) {
     setModalIsOpen(true);
-  };
+  } else {
+    setModalIsOpen(true);
+  }
 
   const modalStyle = {
     content: {
@@ -21,7 +23,9 @@ const Main = ({ appState, setAppState, inventoryState, setInventoryState }) => {
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
-      transform: "translate(-50%, -50%)"
+      transform: "translate(-50%, -50%)",
+      width: "100%",
+      height: "100%"
     }
   };
   const [backpackState, setBackpackState] = useState({});
@@ -64,13 +68,10 @@ const Main = ({ appState, setAppState, inventoryState, setInventoryState }) => {
 
   return (
     <Fragment>
-      <button onClick={onStart} disabled={appState.nome}>
-        INIZIA
-      </button>
-
       <button onClick={onNextTurn} disabled={!appState.nome}>
         NUOVO TURNO
       </button>
+      <button>RESET</button>
 
       <Modal
         isOpen={modalIsOpen}

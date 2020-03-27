@@ -16,16 +16,3 @@ const StatoGiocatore = ({ appState }) => {
 };
 
 export default StatoGiocatore;
-
-//{vitaMassima(appState.classe, appState.livello)}
-
-//import { vitaMassima } from "../api/gestione_vita";
-
-/*const VitamassimaSeEseguitoStart = appState => {
-  let cosareturnare;
-  if (appState.nome) {
-    cosareturnare = vitaMassima(appState.classe, appState.livello);
-  } else if (!appState.nome) {
-    cosareturnare = "";
-  }
-};*/

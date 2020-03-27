@@ -9,12 +9,7 @@ import { aggiornaLivello } from "../api/gestione_livello";
 Modal.setAppElement("#root");
 
 const Main = ({ appState, setAppState, inventoryState, setInventoryState }) => {
-  let [modalIsOpen, setModalIsOpen] = useState();
-  if (!appState.nome) {
-    setModalIsOpen(true);
-  } else {
-    setModalIsOpen(true);
-  }
+  const [modalIsOpen, setModalIsOpen] = useState(!appState.nome);
 
   const modalStyle = {
     content: {

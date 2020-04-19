@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "../styles/app.css";
 import Main from "./Main.js";
 import StatoGiocatore from "./StatoGiocatore.js";
-import Inventario from "./Inventory/inventario.js";
+import Inventario from "./inventory/Inventario.js";
 
 const Schermata = () => {
   //const [appState, setAppState] = useState({classe: "Guerriero", nome: "Enricos", vita: 5});
